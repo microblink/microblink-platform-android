@@ -1,5 +1,10 @@
 # Release notes
 
+## v1.10.3
+### Improvements
+- Improved accessibility support
+- Added optional `correlationId` in `MicroblinkPlatformServiceSettings`
+
 ## v1.10.0
 ### Updates
 
