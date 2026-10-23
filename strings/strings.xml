@@ -38,7 +38,7 @@
     <string name="mbp_camera_permission_action">Go to Settings</string>
     <string name="mbp_error_retake_selfie_description">Try again, making sure your eyes are open, your face is fully visible, and there’s good lighting.</string>
     <string name="mbp_face_capture_error_too_many_faces">Only one face should be visible</string>
-    <string name="mbp_face_capture_error_face_not_found">Place your face in the frame</string>
+    <string name="mbp_face_capture_error_face_not_found">Ensure your face is in the frame</string>
     <string name="mbp_face_capture_error_face_too_small">Move closer</string>
     <string name="mbp_face_capture_error_face_cropped">Center your face</string>
     <string name="mbp_face_capture_error_face_angled">Look directly into the camera</string>
@@ -59,6 +59,7 @@
     <string name="mbp_error_upload_id_document_upload_again_description">Try uploading your document again ensuring the image is clear and fully visible.</string>
     <string name="mbp_form_title">Add more details</string>
     <string name="mbp_form_subtitle">Tell us a bit more</string>
+    <string name="mbp_form_optional">(Optional)</string>
     <string name="mbp_form_submit">Submit</string>
     <string name="mbp_form_email_support_text">e.g., name@company.com</string>
     <string name="mbp_form_upload">Upload</string>
