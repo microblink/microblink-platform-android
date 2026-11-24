@@ -1,5 +1,5 @@
 #!/bin/bash
-LIB_NAMES=(microblink-platform)
+LIB_NAMES=(microblink-platform-engine microblink-platform microblink-platform-bom)
 LIB_VERSIONS=()
 
 for i in "${!LIB_NAMES[@]}"; do
