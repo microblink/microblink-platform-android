@@ -1,5 +1,25 @@
 # Release notes
 
+## v2.0.0
+2.0.0 is a new major version. To upgrade from 1.x, follow the [migration guide](Migration%20guide.md).
+
+### New features
+- **Backend-created transactions.** Your backend creates the transaction and passes its `sdkConfiguration` to the app. The SDK no longer needs a proxy, and consent is given when the transaction is created, so the SDK's consent screen is gone.
+- **Two modules.** `microblink-platform` is the drop-in UI. `microblink-platform-engine` runs the verification and can be used alone to build your own UI.
+- **Optional scanner SDKs.** Add only the scanner SDKs your workflows use; `microblink-platform-bom` sets their versions. A step whose SDK is missing fails with `EngineError.MissingScannerSdk`.
+- **Face capture** with the Biometrics SDK.
+- **`onVerificationFailed`** on `MicroblinkPlatformResultListener` reports errors the user can't retry.
+- **Workflow version check.** A workflow built for an older major.minor SDK version is refused with `EngineError.UnsupportedWorkflowVersion`.
+- **Customization.** `MicroblinkPlatformTypography` has 12 text styles, one per kind of text. The color scheme and the new `scannerTypography` also style the scanner and face screens. `buttonShape` applies to every button.
+
+### Breaking changes
+- minSdk is 26, and integrating apps need Android Gradle Plugin 9.1+ and compileSdk 37.
+- The configuration, result and customization types were renamed or replaced: see the [migration guide](Migration%20guide.md).
+- Workflows have to be updated to 2.0.
+
+### Updates
+- BlinkID Verify v4000.0.1, BlinkCard v3001.0.0 and Biometrics v1000.2.1, through `microblink-platform-bom`.
+
 ## v1.10.3
 ### Improvements
 - Improved accessibility support

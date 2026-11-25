@@ -5,13 +5,22 @@
 # Microblink Platform SDK for Android
 *Microblink Platform* Android SDK enables seamless and secure user authentication by integrating advanced identity verification features, such as document scanning, facial recognition, and real-time validation, into your application. It helps businesses ensure compliance, prevent fraud, and enhance user trust with minimal development effort.
 
+The SDK comes in two parts:
+
+* **`microblink-platform`**: the drop-in UI. You start a verification with one call and get its outcome back; the SDK shows every screen.
+* **`microblink-platform-engine`**: the engine underneath. It runs the verification and shows the scanner and face screens. Depend on it alone if you build your own UI (see [Building your own UI](#engine)).
+
+Upgrading from 1.x? See the [migration guide](Migration%20guide.md).
+
 ## Table Of Contents
   * [Quick start with sample apps](#quick-start-with-sample-apps)
-  * [Device requirements](#device-requirements)
+  * [Requirements](#requirements)
      * [Android version](#android-version)
+     * [Build tools](#build-tools)
      * [Processor architecture](#processor-architecture)
   * [SDK integration](#sdk-integration)
   * [SDK flow](#sdk-flow)
+     * [Creating the transaction](#creating-the-transaction)
      * [Starting the SDK](#starting-the-sdk)
      * [Retrieving information](#retrieving-information)
   * [Backend compatibility](#backend-compatibility)
@@ -19,17 +28,25 @@
   * [Changing default strings and localization](#changing-default-strings-and-localization)
      * [Changing strings in the existing language](#changing-existing-string)
      * [Adding new language](#adding-new-language)
-  * [Kotlin documentation](#kotlin-documentation) 
+  * [Building your own UI](#engine)
+  * [Kotlin documentation](#kotlin-documentation)
 
 
 ## <a name="quick-start-with-sample-apps"></a> Quick start with sample apps
-Clone this repository and check the [**Microblink Platform**](https://github.com/MicroblinkPlatform/microblink-platform-android/tree/master/MicroblinkPlatformSample) Android Studio project with sample apps.
+Clone this repository and check the [**Microblink Platform**](https://github.com/MicroblinkPlatform/microblink-platform-android/tree/main/MicroblinkPlatformSample) Android Studio project with sample apps.
 
 It contains a **Kotlin** sample `app` with detailed instructions - ([link](https://github.com/MicroblinkPlatform/microblink-platform-android/blob/main/MicroblinkPlatformSample/app/src/main/java/com/microblink/platform/sample/MainActivity.kt)) for using the **Microblink Platform SDK**.
 
-## <a name="device-requirements"></a> Device requirements
+## <a name="requirements"></a> Requirements
 ### <a name="android-version"></a> Android version
-*Microblink Platform* SDK requires **Android 7.0** (API level **24**) or newer.
+*Microblink Platform* SDK requires **Android 8.0** (API level **26**) or newer.
+
+### <a name="build-tools"></a> Build tools
+The SDK's UI is built on Jetpack Compose 1.12 and Material 3 1.5, whose libraries require:
+
+* **Android Gradle Plugin 9.1** or newer
+* **compileSdk 37** or newer
+* **Java 17**
 
 ### <a name="processor-architecture"></a> Processor architecture
 *Microblink Platform* SDK is distributed with **ARMv7** and **ARM64** native library binaries.
@@ -40,7 +57,7 @@ If you are combining *Microblink Platform* library with other libraries that con
 
 To avoid this issue and ensure that only architectures supported by the *Microblink Platform* library are packaged in the final application, add the following statement to your `android/defaultConfig` block inside `build.gradle.kts`:
 
-```
+```kotlin
 android {
     ...
     defaultConfig {
@@ -54,182 +71,192 @@ android {
 ```
 
 ## <a name="sdk-integration"></a> SDK integration
-To integrate our SDK into your project just add the dependency in your `build.gradle.kts`:
+The SDK is on Maven Central. Add the platform BOM, the SDK, and the scanner SDKs your workflows use to your `build.gradle.kts`. The BOM sets the versions of all of them, so leave the versions out:
+
+```kotlin
+dependencies {
+    implementation(platform("com.microblink:microblink-platform-bom:2.0.0"))
+    implementation("com.microblink:microblink-platform")
+
+    // Add only the scanner SDKs your workflows use
+    implementation("com.microblink:blinkid-verify-ux") // document scanning and verification
+    implementation("com.microblink:blinkcard-ux")      // payment card scanning
+    implementation("com.microblink:biometrics-ux")     // face capture
+}
+```
+
+| Workflow step | Scanner SDK |
+| --- | --- |
+| Scan ID, Scan & Verify ID | `blinkid-verify-ux` |
+| Scan Payment Card | `blinkcard-ux` |
+| Face capture (selfie) | `biometrics-ux` |
+
+If a workflow reaches a step whose scanner SDK isn't in the app, the verification fails at that step with `EngineError.MissingScannerSdk`. Leaving out the SDKs you don't use keeps your app smaller.
 
 Check out the sample app for an example of using a TOML version catalog.
 
-```kotlin
-implementation("com.microblink:microblink-platform:1.10.0)
-```
-
 ## <a name="sdk-flow"></a> SDK flow
-### <a name="starting-the-sdk"></a> Starting the SDK
-To start the SDK, call `MicroblinkPlatform.startVerification` method with the prepared configuration:
+### <a name="creating-the-transaction"></a> Creating the transaction
+Every verification runs one transaction, which **your backend** creates through the Microblink Platform API with your service account credentials. The response carries an `sdkConfiguration` value. Your backend passes it to the app, and the app passes it to the SDK.
 
-```kotlin
-MicroblinkPlatform.startVerification(this, createMbpConfig())
-```
-
-Configuration example:
-
-```kotlin
-private fun createMbpConfig() = MicroblinkPlatformConfig(
-        mbpResultListener = mbpResultListener,
-        mbpServiceSettings = MicroblinkPlatformServiceSettings(
-            // IMPORTANT: Replace the following values with your own
-            workflowId = "your_workflow_id",
-            proxySettings = MicroblinkPlatformProxySettings(
-            // Base URL of your proxy (without the final endpoint path), for example "https://www.yourproxy.com/api/v1" 
-            url = "your_url",
-
-            // Optional: override default paths if needed
-            // startTransactionPath = "/transaction",
-            // cancelWorkflowPath = "/initialize/{workflowId}/cancel",
-            // workflowInfoPath = "/initialize/{workflowId}/info",
-
-            // Add your additional request headers if needed, e.g. for authorization
-            additionalRequestHeaders = mapOf(
-                "Authorization" to "Bearer your_token"
-            )
-        ),
-        ),
-        mbpUiSettings = MicroblinkPlatformUiSettings(
-            // customize the UI if needed
-        ),
-        consent = MicroblinkPlatformConsent(
-		// replace with real user ID
-		userId = "user_id",
-                // Represents collected end-user's consent for their data
-		// to be processed and stored by Microblink.
-		// The end-user's consent is required for us to be able to complete the KYC verification.
-                isProcessingStoringAllowed = true,
-                // Additionally, represents collected end-user's consent for their
-   		// data to be used by Microblink for the improvement of the
-   		// fraud detection capabilities in our own products (ie. for training our models).                        
-		isTrainingAllowed = true,
-		// Timestamp (UTC, milliseconds since Unix epoch) when consent was given
-            givenOn = <time_of_consent_collection>
-	),
-  mbpCardScanResultListener = object : MicroblinkPlatformCardScanResultListener {
-                    override fun onCardScanned(cardResult: CardScanResult) {
-                        Log.e("MainActivity", "Card scanned: ${cardResult.cardNumber}")
-                    }
-                }
-    )
-```
-
-### <a name="retrieving-information"></a> Retrieving information
-Verification results are returned via `MicroblinkPlatformResultListener`
-
-```kotlin
-private val mbpResultListener = object : MicroblinkPlatformResultListener {
-        override fun onVerificationFinished(result: MicroblinkPlatformResult) {
-            when (result.state) {
-                MicroblinkPlatformResult.FinishedState.Success -> // Handle successful verification
-                MicroblinkPlatformResult.FinishedState.Failure -> // Handle failed verification
-                MicroblinkPlatformResult.FinishedState.Review -> // Handle verification that requires manual review
-            }
-            // use the transaction ID if needed
-           	val transactionId = result.transactionId
-        }
-
-        override fun onVerificationCanceled(cancelState: MicroblinkPlatformCancelState) {
-        when (cancelState.cancelReason) {
-            MicroblinkPlatformCancelState.CancelReason.UserCanceled -> {
-                // Handle user-initiated cancellation (back navigation or close button)
-            }
-
-            MicroblinkPlatformCancelState.CancelReason.ConsentDenied -> {
-                // Handle cancellation due to denied consent
-            }
-        }
-
-        // Optional: use the transaction ID if available
-        val transactionId = cancelState.transactionId
-    }
-    }
-```
-
-## <a name="backend-compatibility"></a> Backend compatibility
-In order to use the SDK, you need to define a proxy service which will be used to communicate with the Microblink Platform. This service should be used to forward requests from the SDK to the Microblink Platform and back in order to start the transaction. The service should be implemented on your side and SDK will use it to communicate with the platform.
+* Never create the transaction in the app: that would ship your service account's secret with it.
+* The `sdkConfiguration` authorizes that one transaction only. Fetch a new one for every verification, and treat it as a secret.
+* The end-user's consent is part of creating the transaction, so the SDK no longer asks for it.
 
 > [!IMPORTANT]
-> To use our API, you will need an `workflowId` and `url`.  [Please reach out to us to obtain these credentials](https://microblink.com/contact-us/).
+> To create transactions you need a workflow and service account credentials. [Please reach out to us to obtain them](https://microblink.com/contact-us/).
 
-Make sure that you use a compatible Workflow version for the `Microblink Platform` Android library version that you use.
+### <a name="starting-the-sdk"></a> Starting the SDK
+To start the SDK, call `MicroblinkPlatform.startVerification` with an `Activity` and the configuration:
+
+```kotlin
+MicroblinkPlatform.startVerification(
+    activity = this,
+    configuration = MicroblinkPlatformConfiguration(
+        engine = EngineConfiguration(
+            service = ServiceSettings(sdkConfiguration = sdkConfiguration), // from your backend
+        ),
+        resultListener = resultListener,
+        ui = UiConfiguration(
+            // customize the UI if needed
+        ),
+        // Optional: receives the card a Scan Payment Card step read
+        cardScanResultListener = { card ->
+            // card.toString() is masked, so logging it doesn't leak the card number
+            Log.i("MainActivity", "Card scanned: $card")
+        },
+    ),
+)
+```
+
+Only one verification runs at a time: calling `startVerification` while one is running throws `IllegalStateException`.
+
+The SDK asks for the camera permission itself when a step needs the camera. Its manifest declares `CAMERA` and `INTERNET`.
+
+`ServiceSettings` also takes a `retryPolicy` (`NetworkRetryPolicy`), which sets how many times and how often the SDK retries a failed request before it reports a failure.
+
+### <a name="retrieving-information"></a> Retrieving information
+The outcome arrives on `MicroblinkPlatformResultListener`, on the main thread, once the user leaves the verification screens. Exactly one of its functions is called per verification:
+
+```kotlin
+private val resultListener = object : MicroblinkPlatformResultListener {
+    override fun onVerificationFinished(outcome: SessionOutcome.Verification) {
+        when (outcome.state) {
+            VerificationState.Accept -> // Handle successful verification
+            VerificationState.Reject -> // Handle failed verification
+            VerificationState.Review -> // Handle verification that requires manual review
+        }
+        val transactionId = outcome.transactionId
+    }
+
+    override fun onVerificationCanceled(outcome: SessionOutcome.Canceled) {
+        // The user left the verification before it finished (back navigation or close button).
+        // transactionId is null if the transaction never started.
+        val transactionId = outcome.transactionId
+    }
+
+    override fun onVerificationFailed(transactionId: String?, error: EngineError) {
+        // The verification ended on an error the user can't retry, for example:
+        // EngineError.NoNetwork, EngineError.VerificationUnavailable,
+        // EngineError.MissingScannerSdk (a scanner SDK is missing from the app),
+        // EngineError.UnsupportedWorkflowVersion (see Backend compatibility)
+    }
+}
+```
+
+`cardScanResultListener` receives a `CardScanResult` (card number, expiry date, owner and CVV) as soon as the backend accepts the scanned card. The card is complete: the masking a workflow configures applies only to what is sent to the backend.
+
+## <a name="backend-compatibility"></a> Backend compatibility
+Each workflow is built for an SDK version. When a verification starts, the SDK checks it: a workflow built for an **older major.minor** version than the SDK's is refused. The SDK then ends the transaction and reports `EngineError.UnsupportedWorkflowVersion`, which carries both versions. For example, SDK 2.0.0 runs workflows built for 2.0 or later and refuses one built for 1.10.
+
+To fix it, update the workflow to the SDK's major.minor version or a later one.
 
 ## <a name="customizing-the-look"></a> Customizing the look
 It is not possible to move elements of the UI around, remove parts of the UI, or add new parts.
 
-The *Microblink Platform* SDK comes with the ability to customize some aspects of the UI by using the UI theming. The screens can be customized to fit your app’s look and feel by defining UI settings.
+The *Microblink Platform* SDK comes with the ability to customize some aspects of the UI by using the UI theming. The screens can be customized to fit your app’s look and feel through `UiConfiguration`. Its colors and fonts also style the scanner and face screens.
 
-<p align="center"><img src="customization/Android-customizations-1.png" alt="Customization 1" title="Customization 1"></p>
-<p align="center"><img src="customization/Android-customizations-2.png" alt="Customization 2" title="Customization 2"></p>
-<p align="center"><img src="customization/Android-customizations-3.png" alt="Customization 3" title="Customization 3"></p>
-<p align="center"><img src="customization/Android-customizations-4.png" alt="Customization 4" title="Customization 4"></p>
-<p align="center"><img src="customization/Android-customizations-5.png" alt="Customization 5" title="Customization 5"></p>
+The SDK uses a light theme in 2.0.0. It doesn't follow the phone's dark mode setting.
 
-It is possible to change the images on the home screen, and each of possible result screens. Just pass the Drawables when creating `MicroblinkPlatformUiSettings` as below:
+<p align="center"><img src="customization/Android-customizations-1.png" alt="Images, text styles, colors and buttons on the home and result screens" title="Images, text styles, colors and buttons"></p>
+<p align="center"><img src="customization/Android-customizations-2.png" alt="Where each text style and color is used" title="Text styles and colors by screen"></p>
 
-```kotlin
- mbpUiSettings = MicroblinkPlatformUiSettings(
-        mbpImages = MicroblinkPlatformImages(
-                home = R.drawable.mbp_home,
-                verificationFail = R.drawable.mbp_verification_fail,
-                verificationSuccess = R.drawable.mbp_verification_success,
-                verificationReview = R.drawable.mbp_verification_review,
-                cameraPermission = R.drawable.mbp_camera_permission,
-            ),
-        )
-```
-
-To change only the `FontFamily` of all texts, you can use the default typography defined in the SDK and just pass a different `FontFamily`. All of the other parameters (font weight, font size, line height, etc) will stay the same.
-For example:
+### Colors
+Set a Material 3 `ColorScheme`. It colors the SDK's screens, and its `primary`, `onPrimary`, `surface` and `onSurface` also color the scanner and face screens:
 
 ```kotlin
-// load any FontFamily
-private val allerta = FontFamily(
-        Font(R.font.allerta, FontWeight.Normal),
+ui = UiConfiguration(
+    colorScheme = lightColorScheme(
+        primary = Cobalt,
+        background = Color.White,
     )
-
-mbpUiSettings = MicroblinkPlatformUiSettings(
-             typography = MicroblinkPlatformTypography.default(allerta),
-             documentScanningTypography = ParcelableUiTypography.Default(allerta)
-        )
+)
 ```
 
-If you wish to change other parameters, you can set `TextStyle` for each part of the SDK. For example, to change the home screen title font:
+### Images
+Change the images on the home screen, the result screens and the camera permission screen:
 
 ```kotlin
-mbpUiSettings = MicroblinkPlatformUiSettings(
-            typography = MicroblinkPlatformTypography(
-                homeTitle = TextStyle(
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 28.sp,
-                    lineHeight = 32.sp,
-                    color = DeepBlue
-                ),
-            )
-        )
+ui = UiConfiguration(
+    images = MicroblinkPlatformImages(
+        home = R.drawable.my_home,
+        verificationSuccess = R.drawable.my_verification_success,
+        verificationFail = R.drawable.my_verification_fail,
+        verificationReview = R.drawable.my_verification_review,
+        cameraPermission = R.drawable.my_camera_permission,
+    ),
+)
 ```
 
-To change the color scheme (e.g. button or background colors), set the `androidx.compose.material3.ColorScheme` in `MicroblinkPlatformUiSettings`:
+### Text styles
+`MicroblinkPlatformTypography` has one `TextStyle` per kind of text: `heading`, `description`, `subtitle`, `homeStepTitle`, `homeStepDescription`, `info`, `fieldTitle`, `fieldBody`, `fieldDescription`, `titleProgressAndErrors`, `dialogTitle` and `button`. The [Kotlin documentation](#kotlin-documentation) says where each one is used.
+
+To change only the font, pass a `FontFamily` to the default typography. Sizes, weights and line heights stay the same:
 
 ```kotlin
-mbpUiSettings = MicroblinkPlatformUiSettings(
-            colorScheme = lightColorScheme(
-                primary = Cobalt,
-                background = Color.White,
-            )
-        )
+private val allerta = FontFamily(Font(R.font.allerta, FontWeight.Normal))
+
+ui = UiConfiguration(
+    typography = MicroblinkPlatformTypography.default(allerta),
+)
 ```
 
-To change the Try againg/Let's start button shape, set the `ButtonShape` in `MicroblinkPlatformUiSettings`:
+To change other parameters, set the style you need:
 
 ```kotlin
-mbpUiSettings = MicroblinkPlatformUiSettings(
-            buttonShape = ButtonShape(shape = CircleShape)
-        )
+ui = UiConfiguration(
+    typography = MicroblinkPlatformTypography(
+        heading = TextStyle(
+            fontWeight = FontWeight.Bold,
+            fontSize = 28.sp,
+            lineHeight = 32.sp,
+            color = DeepBlue,
+        ),
+    ),
+)
+```
+
+The scanner and face screens take their text styles from `scannerTypography` (`ScannerTypography`): the onboarding screen, the help and error dialogs, the scanning instructions, the help tooltip, the loading screen and the face capture guidance. A style there replaces that text's whole default style, so set its size too. A style you leave `null` keeps the scanner's own:
+
+```kotlin
+ui = UiConfiguration(
+    scannerTypography = ScannerTypography(
+        onboardingTitle = TextStyle(fontFamily = allerta, fontSize = 24.sp, fontWeight = FontWeight.Bold),
+        scanningInstructions = TextStyle(fontFamily = allerta, fontSize = 16.sp),
+    ),
+)
+```
+
+<p align="center"><img src="customization/Android-customizations-3.png" alt="Scanning instructions, face capture guidance, help icon and tooltip on the scanner and face screens" title="Scanner and face screens"></p>
+<p align="center"><img src="customization/Android-customizations-4.png" alt="Onboarding and help dialogs of the scanner" title="Scanner dialogs"></p>
+
+### Button shape
+`buttonShape` sets the shape of every button on the SDK's screens and their dialogs:
+
+```kotlin
+ui = UiConfiguration(
+    buttonShape = RoundedCornerShape(8.dp),
+)
 ```
 
 ## <a name="changing-default-strings-and-localization"></a> Changing default strings and localization
@@ -238,15 +265,61 @@ SDK is available in English. You can modify all of the strings and add your own 
 ### <a name="changing-existing-string"></a> Changing existing strings
 To modify an existing string, the best approach would be to:
 
-
 1. Check out all the available strings you can change in the [`strings.xml`](https://github.com/MicroblinkPlatform/microblink-platform-android/tree/main/strings/strings.xml).
-2. Choose a string key that you want to change. For example: `<string name="mb_result_done">Done</string>`.
+2. Choose a string key that you want to change. For example: `<string name="mbp_home_start_button">Let\'s start</string>`.
 3. In your project, create a file `strings.xml` in the folder `res/values` if it doesn't already exist.
-4. Create an entry in the file with the value for the string. For example: `<string name="mb_result_done">Accept</string>`.
+4. Create an entry in the file with the value for the string. For example: `<string name="mbp_home_start_button">Begin</string>`.
 5. Repeat for all the strings you wish to change.
 
-### <a name="adding-new-language"></a> Adding new language
-The *Microblink Platform* SDK can easily be translated into other languages. The [`strings.xml`](https://github.com/MicroblinkPlatform/microblink-platform-android/tree/main/strings/strings.xml) contains all the strings used in the *Microblink Platform* library. In order to make e.g. German translation, create a folder `res/values-de` in your project and create a `strings.xml` inside it. Then, open that file and create entries for strings you wish to translate. E.g., for the string `mb_result_done`, you should create an entry like this: `<string name="mb_result_done">Bestätigen</string>`
+The scanner SDKs' own strings, such as the face capture guidance (`mb_biom_guidance_*`), can be overridden the same way.
 
-### <a name="kotlin-documentation"></a> Kotlin documentation
-Kotlin documentation is available [here](https://microblinkplatform.github.io/microblink-platform-android/microblink-platform/com.microblink.platform/index.html).
+### <a name="adding-new-language"></a> Adding new language
+The *Microblink Platform* SDK can easily be translated into other languages. The [`strings.xml`](https://github.com/MicroblinkPlatform/microblink-platform-android/tree/main/strings/strings.xml) contains all the strings used in the *Microblink Platform* library. In order to make e.g. German translation, create a folder `res/values-de` in your project and create a `strings.xml` inside it. Then, open that file and create entries for strings you wish to translate. E.g., for the string `mbp_home_start_button`, you should create an entry like this: `<string name="mbp_home_start_button">Los geht\'s</string>`
+
+## <a name="engine"></a> Building your own UI
+If you want your own screens instead of the SDK's, depend on the engine alone:
+
+```kotlin
+dependencies {
+    implementation(platform("com.microblink:microblink-platform-bom:2.0.0"))
+    implementation("com.microblink:microblink-platform-engine")
+    // plus the scanner SDKs your workflows use, as above
+}
+```
+
+The engine runs the transaction your backend created, one step at a time, and still shows the scanner and face screens itself. Your UI shows everything else: the start form, form steps, document uploads, the camera permission request and the result.
+
+```kotlin
+// In a ViewModel, or another owner that survives configuration changes
+val start = Engine.startSession(
+    EngineConfiguration(service = ServiceSettings(sdkConfiguration = sdkConfiguration)),
+).getOrElse { /* invalid configuration, or EngineException(UnsupportedWorkflowVersion) */ return }
+
+val session = start.session
+var step: StepResult = start.first
+while (step !is StepResult.Finished) {
+    step = when (step) {
+        is StepResult.Ready -> when (val action = step.action) {
+            is StepAction.Start -> session.next(/* StepInput.FormSubmission for action.form */)
+            is StepAction.EngineStep -> session.next() // the engine runs the scanner
+            is StepAction.InputStep -> session.next(/* your form or upload input for action.request */)
+        }
+        is StepResult.Blocked -> session.next() // after the user grants the camera permission
+        is StepResult.Failed -> session.next(/* the same step again, as step.retryAction says */)
+        is StepResult.Finished -> step
+    }
+}
+val outcome = (step as StepResult.Finished).outcome
+```
+
+* `Session.next` advances by exactly one step and returns what to do next. A wrong input for the current step comes back as `StepResult.Failed` with `EngineError.InvalidNextInput`; it isn't thrown.
+* `Session.status` is a `StateFlow<EngineStatus>` to drive loaders and upload progress.
+* `Session.cancel(CancelReason.UserCanceled)` ends the session.
+* The engine follows which of your Activities is in front through `androidx.startup` (`EngineInitializer`), so you never hand it one. If your app turns off automatic initialization, initialize `EngineInitializer` in `Application.onCreate`.
+* The look of the scanner and face screens comes from `EngineConfiguration.appearance` (`ScannerAppearance`: colors and `ScannerTypography`).
+
+See the [engine's Kotlin documentation](https://microblinkplatform.github.io/microblink-platform-android/microblink-platform-engine/com.microblink.platform.engine/index.html) for every step, input and error.
+
+## <a name="kotlin-documentation"></a> Kotlin documentation
+* [Drop-in UI (`microblink-platform`)](https://microblinkplatform.github.io/microblink-platform-android/microblink-platform/com.microblink.platform/index.html)
+* [Engine (`microblink-platform-engine`)](https://microblinkplatform.github.io/microblink-platform-android/microblink-platform-engine/com.microblink.platform.engine/index.html)
