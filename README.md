@@ -157,7 +157,6 @@ private val resultListener = object : MicroblinkPlatformResultListener {
 
     override fun onVerificationCanceled(outcome: SessionOutcome.Canceled) {
         // The user left the verification before it finished (back navigation or close button).
-        // transactionId is null if the transaction never started.
         val transactionId = outcome.transactionId
     }
 
