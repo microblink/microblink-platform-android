@@ -33,9 +33,15 @@ Upgrading from 1.x? See the [migration guide](Migration%20guide.md).
 
 
 ## <a name="quick-start-with-sample-apps"></a> Quick start with sample apps
-Clone this repository and check the [**Microblink Platform**](https://github.com/MicroblinkPlatform/microblink-platform-android/tree/main/MicroblinkPlatformSample) Android Studio project with sample apps.
+Clone this repository and open the [**MicroblinkPlatformSample**](https://github.com/MicroblinkPlatform/microblink-platform-android/tree/main/MicroblinkPlatformSample) Android Studio project. It has two **Kotlin** sample apps:
 
-It contains a **Kotlin** sample `app` with detailed instructions - ([link](https://github.com/MicroblinkPlatform/microblink-platform-android/blob/main/MicroblinkPlatformSample/app/src/main/java/com/microblink/platform/sample/MainActivity.kt)) for using the **Microblink Platform SDK**.
+* **`app`** starts the drop-in UI ([`MainActivity.kt`](https://github.com/MicroblinkPlatform/microblink-platform-android/blob/main/MicroblinkPlatformSample/app/src/main/java/com/microblink/platform/sample/MainActivity.kt)).
+* **`app-custom-ui`** runs the verification on the engine with screens of its own (see [Building your own UI](#engine)).
+
+Both apps create their transaction in the app, so you can try the SDK without a backend. Before you run them, fill in the placeholders at the top of [`TransactionClient.kt`](https://github.com/MicroblinkPlatform/microblink-platform-android/blob/main/MicroblinkPlatformSample/transaction-client/src/main/java/com/microblink/platform/sample/transaction/TransactionClient.kt): the API URL, client ID, client secret and workflow ID Microblink gave you.
+
+> [!WARNING]
+> `TransactionClient` is for testing only. It puts your service account's client secret in the app, where anyone who unzips the APK can read it. Use a test service account and keep its credentials out of version control. In your own app, let your backend create the transaction (see [Creating the transaction](#creating-the-transaction)).
 
 ## <a name="requirements"></a> Requirements
 ### <a name="android-version"></a> Android version
@@ -99,7 +105,7 @@ Check out the sample app for an example of using a TOML version catalog.
 ### <a name="creating-the-transaction"></a> Creating the transaction
 Every verification runs one transaction, which **your backend** creates through the Microblink Platform API with your service account credentials. The response carries an `sdkConfiguration` value. Your backend passes it to the app, and the app passes it to the SDK.
 
-* Never create the transaction in the app: that would ship your service account's secret with it.
+* Never create the transaction in the app: that would ship your service account's secret with it. The sample apps do it only so you can try the SDK without a backend.
 * The `sdkConfiguration` authorizes that one transaction only. Fetch a new one for every verification, and treat it as a secret.
 * The end-user's consent is part of creating the transaction, so the SDK no longer asks for it.
 
@@ -288,6 +294,8 @@ dependencies {
 ```
 
 The engine runs the transaction your backend created, one step at a time, and still shows the scanner and face screens itself. Your UI shows everything else: the start form, form steps, document uploads, the camera permission request and the result.
+
+The [`app-custom-ui`](https://github.com/MicroblinkPlatform/microblink-platform-android/tree/main/MicroblinkPlatformSample/app-custom-ui) sample app does all of this: a screen for each kind of step, its own theme, and a `ScannerAppearance` that gives the scanner and face screens the same colors and fonts. `VerificationViewModel.kt` shows how each `StepResult` becomes a screen.
 
 ```kotlin
 // In a ViewModel, or another owner that survives configuration changes
