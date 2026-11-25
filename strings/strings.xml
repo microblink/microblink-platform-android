@@ -5,6 +5,7 @@
     <string name="mbp_home_title">Let’s verify your identity</string>
     <string name="mbp_home_subtitle">This will only take a couple of minutes.</string>
     <string name="mbp_loading_text">Processing…</string>
+    <string name="mbp_uploading_text">Uploading… %1$d%%</string>
     <string name="mbp_error_verification_not_available">Verification not available</string>
     <string name="mbp_error_no_internet_connection">No internet connection</string>
     <string name="mbp_error_retake_selfie">Retake selfie</string>
