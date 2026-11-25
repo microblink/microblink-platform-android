@@ -22,4 +22,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "MicroblinkPlatformSample"
 include(":app")
+include(":transaction-client")
  

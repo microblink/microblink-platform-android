@@ -3,6 +3,7 @@ agp = "9.1.1"
 kotlin = "2.3.21"
 microblinkPlatform = "2.0.0"
 composeBom = "2025.12.00"
+coroutines = "1.10.2"
 
 [libraries]
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -11,8 +12,10 @@ microblink-platform = { group = "com.microblink", name = "microblink-platform" }
 blinkid-verify-ux = { group = "com.microblink", name = "blinkid-verify-ux" }
 blinkcard-ux = { group = "com.microblink", name = "blinkcard-ux" }
 biometrics-ux = { group = "com.microblink", name = "biometrics-ux" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 

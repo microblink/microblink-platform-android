@@ -44,4 +44,7 @@ dependencies {
     implementation(libs.blinkid.verify.ux) // document scanning
     implementation(libs.blinkcard.ux) // card scanning
     implementation(libs.biometrics.ux) // face capture
+
+    // Creates the transaction in the app, for testing only. See TransactionClient.kt.
+    implementation(project(":transaction-client"))
 }
