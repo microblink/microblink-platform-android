@@ -1,0 +1,860 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>com.microblink.platform.engine</title>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../index.html" tabindex="1">
+                    Microblink Platform
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":microblink-platform-engine/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":microblink-platform-engine/release" data-filter=":microblink-platform-engine/release">
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    Microblink Platform
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="package" id="content" pageids="microblink-platform-engine::com.microblink.platform.engine////PointingToDeclaration//921692593">
+  <div class="breadcrumbs"><a href="../index.html">microblink-platform-engine</a><span class="delimiter">/</span><span class="current">com.microblink.platform.engine</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="-286526807%2FClasslikes%2F921692593" anchor-label="AllowedDocument" id="-286526807%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-allowed-document/index.html"><span>Allowed</span><wbr><span><span>Document</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-286526807%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-allowed-document/index.html">AllowedDocument</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>displayName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>description<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentType<span class="token operator">: </span><a href="-non-id-document-type/index.html">NonIdDocumentType</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>allowedFileTypes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">One document an <a href="-input-request/-upload-non-id-document/index.html">InputRequest.UploadNonIdDocument</a> step accepts. The host lets the user pick one and answers with it, in <a href="-step-input/-upload-non-id-document/index.html">StepInput.UploadNonIdDocument</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1812935116%2FClasslikes%2F921692593" anchor-label="AllowedFileKind" id="-1812935116%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-allowed-file-kind/index.html"><span>Allowed</span><wbr><span>File</span><wbr><span><span>Kind</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1812935116%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-allowed-file-kind/index.html">AllowedFileKind</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-allowed-file-kind/index.html">AllowedFileKind</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">File kind allowed for non-ID document upload. A document can accept <a href="-allowed-file-kind/-image/index.html">Image</a>, <a href="-allowed-file-kind/-pdf/index.html">Pdf</a>, or <a href="-allowed-file-kind/-image-or-pdf/index.html">ImageOrPdf</a> (both).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-65825160%2FClasslikes%2F921692593" anchor-label="CancelReason" id="-65825160%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cancel-reason/index.html"><span>Cancel</span><wbr><span><span>Reason</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-65825160%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-cancel-reason/index.html">CancelReason</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-cancel-reason/index.html">CancelReason</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1314319496%2FClasslikes%2F921692593" anchor-label="CardDate" id="-1314319496%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-card-date/index.html"><span>Card</span><wbr><span><span>Date</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1314319496%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-card-date/index.html">CardDate</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>day<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>month<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>year<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A date on the card, as the scanner read it; a part it didn't read is null.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1641255956%2FClasslikes%2F921692593" anchor-label="CardScanResult" id="-1641255956%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-card-scan-result/index.html"><span>Card</span><wbr><span>Scan</span><wbr><span><span>Result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1641255956%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-card-scan-result/index.html">CardScanResult</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>cardNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>expiryDate<span class="token operator">: </span><a href="-card-date/index.html">CardDate</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>owner<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>cvv<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The card a successful <a href="-engine-step-type/-card-scan/index.html">EngineStepType.CardScan</a> step read, in full: the masking the backend asks for applies only to what Engine sends it. Delivered as <a href="-step-output/-card-scan/index.html">StepOutput.CardScan</a> on the first <a href="-step-result/index.html">StepResult</a> showing the backend took the card; there is no separate listener.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2073928621%2FClasslikes%2F921692593" anchor-label="DateTimeSubtype" id="2073928621%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-date-time-subtype/index.html"><span>Date</span><wbr><span>Time</span><wbr><span><span>Subtype</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2073928621%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-date-time-subtype/index.html">DateTimeSubtype</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-date-time-subtype/index.html">DateTimeSubtype</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="56892884%2FClasslikes%2F921692593" anchor-label="Engine" id="56892884%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-engine/index.html"><span><span>Engine</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="56892884%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">object </span><a href="-engine/index.html">Engine</a></div><div class="brief "><p class="paragraph">Entry point for the Microblink Platform Engine API.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="391948120%2FClasslikes%2F921692593" anchor-label="EngineConfiguration" id="391948120%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-engine-configuration/index.html"><span>Engine</span><wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="391948120%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-engine-configuration/index.html">EngineConfiguration</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>service<span class="token operator">: </span><a href="-service-settings/index.html">ServiceSettings</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>appearance<span class="token operator">: </span><a href="-scanner-appearance/index.html">ScannerAppearance</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Configuration for an Engine verification session.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1933873274%2FClasslikes%2F921692593" anchor-label="EngineError" id="-1933873274%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-engine-error/index.html"><span>Engine</span><wbr><span><span>Error</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1933873274%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-engine-error/index.html">EngineError</a></div><div class="brief "><p class="paragraph">A failure surfaced by Engine. The caller should not infer retry behavior from the error type alone; it should use <a href="-step-result/-failed/recoverable.html">StepResult.Failed.recoverable</a> and <a href="-step-result/-failed/retry-action.html">StepResult.Failed.retryAction</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1786103967%2FClasslikes%2F921692593" anchor-label="EngineException" id="1786103967%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-engine-exception/index.html"><span>Engine</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1786103967%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-engine-exception/index.html">EngineException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>error<span class="token operator">: </span><a href="-engine-error/index.html">EngineError</a><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="https://developer.android.com/reference/kotlin/java/lang/Exception.html">Exception</a></div><div class="brief "><p class="paragraph">An <a href="-engine/start-session.html">Engine.startSession</a> failure whose reason Engine can name as an <a href="../../microblink-platform-engine/com.microblink.platform.engine/-engine-exception/--root--.html">error</a>. Today that is only <a href="-engine-error/-unsupported-workflow-version/index.html">EngineError.UnsupportedWorkflowVersion</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1922569684%2FClasslikes%2F921692593" anchor-label="EngineInitializer" id="-1922569684%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-engine-initializer/index.html"><span>Engine</span><wbr><span><span>Initializer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1922569684%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-engine-initializer/index.html">EngineInitializer</a> : <a href="https://developer.android.com/reference/kotlin/androidx/startup/Initializer.html">Initializer</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Lets Engine know which of the app's Activities is in front, so it can start scanner steps from it. androidx.startup runs it when the app starts, from Engine's manifest, so an app has nothing to do.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-844418110%2FClasslikes%2F921692593" anchor-label="EngineStatus" id="-844418110%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-engine-status/index.html"><span>Engine</span><wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-844418110%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-engine-status/index.html">EngineStatus</a></div><div class="brief "><p class="paragraph">Transient execution status of a session — what Engine is doing right now. This is a side channel for loading and progress UI only; workflow data, next-step info, blockers, and terminal outcomes all live on <a href="-step-result/index.html">StepResult</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-163779013%2FClasslikes%2F921692593" anchor-label="EngineStepProgress" id="-163779013%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-engine-step-progress/index.html"><span>Engine</span><wbr><span>Step</span><wbr><span><span>Progress</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-163779013%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-engine-step-progress/index.html">EngineStepProgress</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>type<span class="token operator">: </span><a href="-engine-step-type/index.html">EngineStepType</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>status<span class="token operator">: </span><a href="-engine-step-status/index.html">EngineStepStatus</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Which scanner step Engine is running, and how far it is.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-50728490%2FClasslikes%2F921692593" anchor-label="EngineStepStatus" id="-50728490%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-engine-step-status/index.html"><span>Engine</span><wbr><span>Step</span><wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-50728490%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-engine-step-status/index.html">EngineStepStatus</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-engine-step-status/index.html">EngineStepStatus</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">How far a scanner step is.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1370053966%2FClasslikes%2F921692593" anchor-label="EngineStepType" id="1370053966%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-engine-step-type/index.html"><span>Engine</span><wbr><span>Step</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1370053966%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-engine-step-type/index.html">EngineStepType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-engine-step-type/index.html">EngineStepType</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Types of steps that Engine runs itself by launching a scanner SDK, which the app includes (see <a href="-engine-error/-missing-scanner-sdk/index.html">EngineError.MissingScannerSdk</a>).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-557895878%2FClasslikes%2F921692593" anchor-label="ExpectedInput" id="-557895878%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-expected-input/index.html"><span>Expected</span><wbr><span><span>Input</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-557895878%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-expected-input/index.html">ExpectedInput</a></div><div class="brief "><p class="paragraph">The input kind Engine expected for the current step, reported by <a href="-engine-error/-invalid-next-input/index.html">EngineError.InvalidNextInput</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1201855246%2FClasslikes%2F921692593" anchor-label="FileSubtype" id="1201855246%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-file-subtype/index.html"><span>File</span><wbr><span><span>Subtype</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1201855246%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-file-subtype/index.html">FileSubtype</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-file-subtype/index.html">FileSubtype</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">The kind of file a file field asks for. Engine takes a JPEG, PNG or PDF for either.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2031278742%2FClasslikes%2F921692593" anchor-label="FormField" id="2031278742%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-form-field/index.html"><span>Form</span><wbr><span><span>Field</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2031278742%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-form-field/index.html">FormField</a></div><div class="brief "><p class="paragraph">Description of a single form field. The host owns rendering, how errors show, file picking, and upload preparation; Engine checks the answers (see <a href="-engine-error/-invalid-form-input/index.html">EngineError.InvalidFormInput</a>). Each variant is answered by the matching <a href="-form-field-value/index.html">FormFieldValue</a> variant.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1913758716%2FClasslikes%2F921692593" anchor-label="FormFieldError" id="-1913758716%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-form-field-error/index.html"><span>Form</span><wbr><span>Field</span><wbr><span><span>Error</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1913758716%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-form-field-error/index.html">FormFieldError</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>fieldName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>reason<span class="token operator">: </span><a href="-form-field-error-reason/index.html">FormFieldErrorReason</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Why one submitted form value was rejected — see <a href="-engine-error/-invalid-form-input/index.html">EngineError.InvalidFormInput</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="87895008%2FClasslikes%2F921692593" anchor-label="FormFieldErrorReason" id="87895008%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-form-field-error-reason/index.html"><span>Form</span><wbr><span>Field</span><wbr><span>Error</span><wbr><span><span>Reason</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="87895008%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-form-field-error-reason/index.html">FormFieldErrorReason</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-form-field-error-reason/index.html">FormFieldErrorReason</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Why Engine rejected one form value — see <a href="-form-field-error/index.html">FormFieldError</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1980667067%2FClasslikes%2F921692593" anchor-label="FormFieldValue" id="1980667067%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-form-field-value/index.html"><span>Form</span><wbr><span>Field</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1980667067%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-form-field-value/index.html">FormFieldValue</a></div><div class="brief "><p class="paragraph">Strongly-typed value for a single <a href="-form-field/index.html">FormField</a>. The variant must match the descriptor's variant (e.g. a <code class="lang-kotlin">FormField.Number(Integer)</code> is answered with <a href="-form-field-value/-integer/index.html">Integer</a>). A null value leaves the field unanswered, which only an optional field allows.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-49156618%2FClasslikes%2F921692593" anchor-label="HostInputKind" id="-49156618%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-host-input-kind/index.html"><span>Host</span><wbr><span>Input</span><wbr><span><span>Kind</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-49156618%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-host-input-kind/index.html">HostInputKind</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-host-input-kind/index.html">HostInputKind</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">A kind of host-collected input: a form (<a href="-step-input/-form-submission/index.html">StepInput.FormSubmission</a>) or one of the two uploads.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1838298543%2FClasslikes%2F921692593" anchor-label="InputRequest" id="-1838298543%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-input-request/index.html"><span>Input</span><wbr><span><span>Request</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1838298543%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-input-request/index.html">InputRequest</a></div><div class="brief "><p class="paragraph">A host-rendered step's descriptor. The host owns rendering, how errors show, and file picking; Engine checks what comes back (see <a href="-engine-error/-invalid-form-input/index.html">EngineError.InvalidFormInput</a> and <a href="-engine-error/-invalid-upload-input/index.html">EngineError.InvalidUploadInput</a>).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-225263996%2FClasslikes%2F921692593" anchor-label="InteractiveStepType" id="-225263996%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-interactive-step-type/index.html"><span>Interactive</span><wbr><span>Step</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-225263996%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-interactive-step-type/index.html">InteractiveStepType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-interactive-step-type/index.html">InteractiveStepType</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">The kinds of interactive step a host can meet in <a href="-workflow-progress/steps.html">WorkflowProgress.steps</a>. The workflow's non-interactive steps (Start, DbVer, TrustScore, End) and step types this build doesn't recognize are left out of it.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-278781718%2FClasslikes%2F921692593" anchor-label="NetworkRetryPolicy" id="-278781718%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-network-retry-policy/index.html"><span>Network</span><wbr><span>Retry</span><wbr><span><span>Policy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-278781718%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-network-retry-policy/index.html">NetworkRetryPolicy</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>maxAttempts<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">5</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>retryDelayMillis<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span><span class="token constant">500</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">How hard Engine tries before reporting a failure.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1985957841%2FClasslikes%2F921692593" anchor-label="NonIdDocumentType" id="-1985957841%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-non-id-document-type/index.html"><span>Non</span><wbr><span>Id</span><wbr><span>Document</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1985957841%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-non-id-document-type/index.html">NonIdDocumentType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-non-id-document-type/index.html">NonIdDocumentType</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">The kinds of non-ID document the backend knows. A type added after this build shipped reads as <a href="-non-id-document-type/-unknown/index.html">Unknown</a>. The host answers with the <a href="-allowed-document/index.html">AllowedDocument</a> itself, so Engine still sends the type the backend named, however many read as <a href="-non-id-document-type/-unknown/index.html">Unknown</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="315382299%2FClasslikes%2F921692593" anchor-label="NumberSubtype" id="315382299%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-number-subtype/index.html"><span>Number</span><wbr><span><span>Subtype</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="315382299%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-number-subtype/index.html">NumberSubtype</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-number-subtype/index.html">NumberSubtype</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1812649144%2FClasslikes%2F921692593" anchor-label="RequiredPermission" id="-1812649144%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-required-permission/index.html"><span>Required</span><wbr><span><span>Permission</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1812649144%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-required-permission/index.html">RequiredPermission</a></div><div class="brief "><p class="paragraph">A runtime permission an Engine-run step requires.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="788073582%2FClasslikes%2F921692593" anchor-label="RetryAction" id="788073582%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-retry-action/index.html"><span>Retry</span><wbr><span><span>Action</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="788073582%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-retry-action/index.html">RetryAction</a></div><div class="brief "><p class="paragraph">How a recoverable failure can be retried.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-818276694%2FClasslikes%2F921692593" anchor-label="ScannerAppearance" id="-818276694%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-scanner-appearance/index.html"><span>Scanner</span><wbr><span><span>Appearance</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-818276694%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-scanner-appearance/index.html">ScannerAppearance</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>colors<span class="token operator">: </span><a href="-scanner-colors/index.html">ScannerColors</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>typography<span class="token operator">: </span><a href="-scanner-typography/index.html">ScannerTypography</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The look of the scanner and face screens Engine runs. A null here, or a null part of it, keeps that SDK's own default light look: 2.0.0 never follows the phone's dark setting.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="66638238%2FClasslikes%2F921692593" anchor-label="ScannerColors" id="66638238%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-scanner-colors/index.html"><span>Scanner</span><wbr><span><span>Colors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="66638238%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-scanner-colors/index.html">ScannerColors</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ColorInt.html"><span class="token annotation builtin">ColorInt</span></a>&nbsp;</span><span class="token keyword">val </span>primary<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ColorInt.html"><span class="token annotation builtin">ColorInt</span></a>&nbsp;</span><span class="token keyword">val </span>onPrimary<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ColorInt.html"><span class="token annotation builtin">ColorInt</span></a>&nbsp;</span><span class="token keyword">val </span>surface<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ColorInt.html"><span class="token annotation builtin">ColorInt</span></a>&nbsp;</span><span class="token keyword">val </span>onSurface<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The colors of the scanner and face screens, named after the design's roles. Engine uses <a href="../../microblink-platform-engine/com.microblink.platform.engine/-scanner-colors/--root--.html">surface</a> as the SDKs' background, and <a href="../../microblink-platform-engine/com.microblink.platform.engine/-scanner-colors/--root--.html">onSurface</a> as the text on it.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1946728385%2FClasslikes%2F921692593" anchor-label="ScannerTypography" id="-1946728385%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-scanner-typography/index.html"><span>Scanner</span><wbr><span><span>Typography</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1946728385%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-scanner-typography/index.html">ScannerTypography</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>onboardingTitle<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>onboardingText<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>onboardingButton<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>helpDialogTitle<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>helpDialogText<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>helpDialogButton<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>errorDialogTitle<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>errorDialogText<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>errorDialogButton<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scanningInstructions<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>helpTooltip<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>loadingScreen<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>faceCaptureInstructions<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The fonts of the scanner and face screens. A style replaces that text's whole default style, so set its size too; a null style keeps the SDK's own. A style's <code class="lang-kotlin">color</code> may be ignored, because the scanner screens take their text colors from <a href="-scanner-colors/index.html">ScannerColors</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="621990196%2FClasslikes%2F921692593" anchor-label="ServiceSettings" id="621990196%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-service-settings/index.html"><span>Service</span><wbr><span><span>Settings</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="621990196%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-service-settings/index.html">ServiceSettings</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>sdkConfiguration<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>retryPolicy<span class="token operator">: </span><a href="-network-retry-policy/index.html">NetworkRetryPolicy</a><span class="token operator"> = </span>NetworkRetryPolicy.Default</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Everything the SDK needs to execute a transaction the customer backend has already created.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1070344534%2FClasslikes%2F921692593" anchor-label="Session" id="1070344534%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-session/index.html"><span><span>Session</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1070344534%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-session/index.html">Session</a></div><div class="brief "><p class="paragraph">A single verification session.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-88138630%2FClasslikes%2F921692593" anchor-label="SessionOutcome" id="-88138630%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-session-outcome/index.html"><span>Session</span><wbr><span><span>Outcome</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-88138630%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-session-outcome/index.html">SessionOutcome</a></div><div class="brief "><p class="paragraph">Terminal result of a session. Carried by <a href="-step-result/-finished/index.html">StepResult.Finished</a> and returned by <a href="-session/cancel.html">Session.cancel</a>; there is no separate outcome listener.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2108830678%2FClasslikes%2F921692593" anchor-label="SessionStart" id="-2108830678%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-session-start/index.html"><span>Session</span><wbr><span><span>Start</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2108830678%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-session-start/index.html">SessionStart</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>session<span class="token operator">: </span><a href="-session/index.html">Session</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>first<span class="token operator">: </span><a href="-step-result/index.html">StepResult</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A live, already-started session together with the first <a href="-step-result/index.html">StepResult</a> of its workflow.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="899483082%2FClasslikes%2F921692593" anchor-label="Step" id="899483082%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-step/index.html"><span><span>Step</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="899483082%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-step/index.html">Step</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>id<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>type<span class="token operator">: </span><a href="-interactive-step-type/index.html">InteractiveStepType</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>description<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>isCompleted<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>isCurrent<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>attemptCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>isSecondOfSameKind<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>interactiveIndex<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Describes a single interactive workflow step.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-577769100%2FClasslikes%2F921692593" anchor-label="StepAction" id="-577769100%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-step-action/index.html"><span>Step</span><wbr><span><span>Action</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-577769100%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-step-action/index.html">StepAction</a></div><div class="brief "><p class="paragraph">The next workflow action the caller should handle.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1338116062%2FClasslikes%2F921692593" anchor-label="StepBlocker" id="1338116062%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-step-blocker/index.html"><span>Step</span><wbr><span><span>Blocker</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1338116062%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-step-blocker/index.html">StepBlocker</a></div><div class="brief "><p class="paragraph">A host-owned condition that must be resolved before Engine can run the next step.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1473435186%2FClasslikes%2F921692593" anchor-label="StepInput" id="-1473435186%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-step-input/index.html"><span>Step</span><wbr><span><span>Input</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1473435186%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-step-input/index.html">StepInput</a></div><div class="brief "><p class="paragraph">Input passed to <a href="-session/next.html">Session.next</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="119832841%2FClasslikes%2F921692593" anchor-label="StepOutput" id="119832841%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-step-output/index.html"><span>Step</span><wbr><span><span>Output</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="119832841%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-step-output/index.html">StepOutput</a></div><div class="brief "><p class="paragraph">Output produced by an Engine-run step that the host may consume directly: today, only the card an <a href="-engine-step-type/-card-scan/index.html">EngineStepType.CardScan</a> step read.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1040201363%2FClasslikes%2F921692593" anchor-label="StepResult" id="-1040201363%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-step-result/index.html"><span>Step</span><wbr><span><span>Result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1040201363%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-step-result/index.html">StepResult</a></div><div class="brief "><p class="paragraph">The full snapshot returned from <a href="-engine/start-session.html">Engine.startSession</a> and every <a href="-session/next.html">Session.next</a>. It is the durable source of truth for transaction id, workflow, the next action, blockers, recoverable failures, and terminal outcomes.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-910100947%2FClasslikes%2F921692593" anchor-label="StepValidationReason" id="-910100947%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-step-validation-reason/index.html"><span>Step</span><wbr><span>Validation</span><wbr><span><span>Reason</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-910100947%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-step-validation-reason/index.html">StepValidationReason</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-step-validation-reason/index.html">StepValidationReason</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Why a step's attempt was turned down — see <a href="-engine-error/-step-validation/index.html">EngineError.StepValidation</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1154885311%2FClasslikes%2F921692593" anchor-label="TextSubtype" id="1154885311%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-text-subtype/index.html"><span>Text</span><wbr><span><span>Subtype</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1154885311%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-text-subtype/index.html">TextSubtype</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-text-subtype/index.html">TextSubtype</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="340511449%2FClasslikes%2F921692593" anchor-label="UploadFile" id="340511449%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-upload-file/index.html"><span>Upload</span><wbr><span><span>File</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="340511449%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-upload-file/index.html">UploadFile</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>contentType<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>fileName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>sizeBytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>openStream<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://developer.android.com/reference/kotlin/java/io/InputStream.html">InputStream</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A host-provided file payload for every host-rendered upload. A plain class, not a <code class="lang-kotlin">data class</code>: it has identity equality, so the enclosing <a href="-step-input/index.html">StepInput</a> values do too — never compare upload inputs by value.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-343319341%2FClasslikes%2F921692593" anchor-label="UploadInputErrorReason" id="-343319341%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-upload-input-error-reason/index.html"><span>Upload</span><wbr><span>Input</span><wbr><span>Error</span><wbr><span><span>Reason</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-343319341%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-upload-input-error-reason/index.html">UploadInputErrorReason</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-upload-input-error-reason/index.html">UploadInputErrorReason</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Why Engine rejected an upload — see <a href="-engine-error/-invalid-upload-input/index.html">EngineError.InvalidUploadInput</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1657921374%2FClasslikes%2F921692593" anchor-label="UploadSide" id="1657921374%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-upload-side/index.html"><span>Upload</span><wbr><span><span>Side</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1657921374%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-upload-side/index.html">UploadSide</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-upload-side/index.html">UploadSide</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">A side of an ID document — see <a href="-engine-error/-invalid-upload-input/side.html">EngineError.InvalidUploadInput.side</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1624782090%2FClasslikes%2F921692593" anchor-label="VerificationState" id="-1624782090%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-verification-state/index.html"><span>Verification</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1624782090%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-verification-state/index.html">VerificationState</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-verification-state/index.html">VerificationState</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">The backend's verdict. One this SDK doesn't know reads as <a href="-verification-state/-review/index.html">Review</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1382471178%2FClasslikes%2F921692593" anchor-label="WorkflowProgress" id="1382471178%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-workflow-progress/index.html"><span>Workflow</span><wbr><span><span>Progress</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1382471178%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-workflow-progress/index.html">WorkflowProgress</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>stepCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>interactiveStepCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>hasConditionalInteractiveStep<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>isKioskModeEnabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>steps<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-step/index.html">Step</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>currentStepId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>completedStepIds<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Snapshot of the workflow's progress as known to Engine at a point in the session. Carries the data a home / progress screen needs. <a href="../../microblink-platform-engine/com.microblink.platform.engine/-workflow-progress/--root--.html">steps</a> lists interactive steps only; the counts are null until the backend has sent a snapshot.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

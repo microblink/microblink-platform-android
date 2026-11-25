@@ -1,0 +1,291 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>EngineError</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../index.html" tabindex="1">
+                    Microblink Platform
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":microblink-platform-engine/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":microblink-platform-engine/release" data-filter=":microblink-platform-engine/release">
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    Microblink Platform
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="microblink-platform-engine::com.microblink.platform.engine/EngineError///PointingToDeclaration//921692593">
+  <div class="breadcrumbs"><a href="../../index.html">microblink-platform-engine</a><span class="delimiter">/</span><a href="../index.html">com.microblink.platform.engine</a><span class="delimiter">/</span><span class="current">EngineError</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Engine</span><wbr><span><span>Error</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="index.html">EngineError</a></div><p class="paragraph">A failure surfaced by Engine. The caller should not infer retry behavior from the error type alone; it should use <a href="../-step-result/-failed/recoverable.html">StepResult.Failed.recoverable</a> and <a href="../-step-result/-failed/retry-action.html">StepResult.Failed.retryAction</a>.</p><p class="paragraph">Engine maps every backend error to one of these; raw backend codes are never exposed.</p><h4 class="tableheader">Inheritors</h4><div class="table"><div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-no-network/index.html">NoNetwork</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-timeout/index.html">Timeout</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-verification-unavailable/index.html">VerificationUnavailable</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-step-validation/index.html">StepValidation</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-retry-limit-exceeded/index.html">RetryLimitExceeded</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-missing-scanner-sdk/index.html">MissingScannerSdk</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-unsupported-workflow-version/index.html">UnsupportedWorkflowVersion</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-invalid-next-input/index.html">InvalidNextInput</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-invalid-form-input/index.html">InvalidFormInput</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-invalid-upload-input/index.html">InvalidUploadInput</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-internal/index.html">Internal</a></div></span></div><div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="973275601%2FClasslikes%2F921692593" anchor-label="Internal" id="973275601%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-internal/index.html"><span><span>Internal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="973275601%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-internal/index.html">Internal</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>cause<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span> : <a href="index.html">EngineError</a></div><div class="brief "><p class="paragraph">Unexpected internal failure.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-386148705%2FClasslikes%2F921692593" anchor-label="InvalidFormInput" id="-386148705%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-invalid-form-input/index.html"><span>Invalid</span><wbr><span>Form</span><wbr><span><span>Input</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-386148705%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-invalid-form-input/index.html">InvalidFormInput</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>errors<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-form-field-error/index.html">FormFieldError</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="index.html">EngineError</a></div><div class="brief "><p class="paragraph">Submitted form values failed Engine's validation, so nothing was sent to the backend. Recoverable: the host shows each error next to its field and resubmits.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1425303410%2FClasslikes%2F921692593" anchor-label="InvalidNextInput" id="-1425303410%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-invalid-next-input/index.html"><span>Invalid</span><wbr><span>Next</span><wbr><span><span>Input</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1425303410%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-invalid-next-input/index.html">InvalidNextInput</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>expected<span class="token operator">: </span><a href="../-expected-input/index.html">ExpectedInput</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>actual<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="index.html">EngineError</a></div><div class="brief "><p class="paragraph">The host advanced with the wrong input type for the current step — a programmer error, returned (not thrown). <a href="../../../microblink-platform-engine/com.microblink.platform.engine/-engine-error/-invalid-next-input/--root--.html">actual</a> is the given input's class name, such as <code class="lang-kotlin">FormSubmission</code>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="726555164%2FClasslikes%2F921692593" anchor-label="InvalidUploadInput" id="726555164%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-invalid-upload-input/index.html"><span>Invalid</span><wbr><span>Upload</span><wbr><span><span>Input</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="726555164%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-invalid-upload-input/index.html">InvalidUploadInput</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>reason<span class="token operator">: </span><a href="../-upload-input-error-reason/index.html">UploadInputErrorReason</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>side<span class="token operator">: </span><a href="../-upload-side/index.html">UploadSide</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span> : <a href="index.html">EngineError</a></div><div class="brief "><p class="paragraph">A submitted upload failed Engine's checks, so nothing was sent to the backend. Recoverable: the host fixes the input and resubmits.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2099831310%2FClasslikes%2F921692593" anchor-label="MissingScannerSdk" id="-2099831310%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-missing-scanner-sdk/index.html"><span>Missing</span><wbr><span>Scanner</span><wbr><span><span>Sdk</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2099831310%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-missing-scanner-sdk/index.html">MissingScannerSdk</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>stepType<span class="token operator">: </span><a href="../-engine-step-type/index.html">EngineStepType</a></span></span><span class="token punctuation">)</span> : <a href="index.html">EngineError</a></div><div class="brief "><p class="paragraph">The workflow has a scanner step whose SDK this app doesn't include, so the step can't run — an integration error, terminal. Engine compiles against the scanner SDKs but doesn't bring them: the app adds BlinkID Verify for <a href="../-engine-step-type/-document-scan/index.html">EngineStepType.DocumentScan</a> and <a href="../-engine-step-type/-verify-document/index.html">EngineStepType.VerifyDocument</a>, BlinkCard for <a href="../-engine-step-type/-card-scan/index.html">EngineStepType.CardScan</a> and Biometrics for <a href="../-engine-step-type/-face-capture/index.html">EngineStepType.FaceCapture</a>, at the versions the platform BOM gives.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1669799303%2FClasslikes%2F921692593" anchor-label="NoNetwork" id="1669799303%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-no-network/index.html"><span>No</span><wbr><span><span>Network</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1669799303%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-no-network/index.html">NoNetwork</a> : <a href="index.html">EngineError</a></div><div class="brief "><p class="paragraph">No connection, or the backend can't be reached.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1550346760%2FClasslikes%2F921692593" anchor-label="RetryLimitExceeded" id="1550346760%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-retry-limit-exceeded/index.html"><span>Retry</span><wbr><span>Limit</span><wbr><span><span>Exceeded</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1550346760%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-retry-limit-exceeded/index.html">RetryLimitExceeded</a> : <a href="index.html">EngineError</a></div><div class="brief "><p class="paragraph">A step ran out of the retries the workflow allows, so the backend ended the transaction: terminal.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1601415319%2FClasslikes%2F921692593" anchor-label="StepValidation" id="-1601415319%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-step-validation/index.html"><span>Step</span><wbr><span><span>Validation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1601415319%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-step-validation/index.html">StepValidation</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>reason<span class="token operator">: </span><a href="../-step-validation-reason/index.html">StepValidationReason</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>step<span class="token operator">: </span><a href="../-step/index.html">Step</a></span></span><span class="token punctuation">)</span> : <a href="index.html">EngineError</a></div><div class="brief "><p class="paragraph">A step's attempt was turned down: the backend refused what was submitted, or the user closed a scanner (<a href="../-step-validation-reason/-step-canceled/index.html">StepValidationReason.StepCanceled</a>). The step waits to be tried again.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-24057709%2FClasslikes%2F921692593" anchor-label="Timeout" id="-24057709%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-timeout/index.html"><span><span>Timeout</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-24057709%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-timeout/index.html">Timeout</a> : <a href="index.html">EngineError</a></div><div class="brief "><p class="paragraph">The backend was still working on the step when <a href="../-network-retry-policy/max-attempts.html">NetworkRetryPolicy.maxAttempts</a> ran out. <a href="../-session/next.html">Session.next</a> asks it again.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="456501258%2FClasslikes%2F921692593" anchor-label="UnsupportedWorkflowVersion" id="456501258%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-unsupported-workflow-version/index.html"><span>Unsupported</span><wbr><span>Workflow</span><wbr><span><span>Version</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="456501258%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-unsupported-workflow-version/index.html">UnsupportedWorkflowVersion</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>sdkVersion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>workflowVersion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="index.html">EngineError</a></div><div class="brief "><p class="paragraph">The transaction's workflow was built for an older major.minor SDK version than this one, so <a href="../-engine/start-session.html">Engine.startSession</a> refused it: an integration error, terminal. Engine has asked the backend to end the transaction, giving both versions. The workflow has to be updated to this SDK's major.minor version or a later one.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1218816831%2FClasslikes%2F921692593" anchor-label="VerificationUnavailable" id="1218816831%2FClasslikes%2F921692593" data-filterable-set=":microblink-platform-engine/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":microblink-platform-engine/release" data-filterable-set=":microblink-platform-engine/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-verification-unavailable/index.html"><span>Verification</span><wbr><span><span>Unavailable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1218816831%2FClasslikes%2F921692593"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":microblink-platform-engine/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-verification-unavailable/index.html">VerificationUnavailable</a> : <a href="index.html">EngineError</a></div><div class="brief "><p class="paragraph">Engine couldn't run the step: the backend failed or ended the transaction, the workflow has a step this SDK can't run, or a scanner failed or has no license.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

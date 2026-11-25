@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.microblink</groupId>
+  <artifactId>microblink-platform-bom</artifactId>
+  <version>2.0.0</version>
+  <packaging>pom</packaging>
+  <name>Microblink Platform BOM for Android</name>
+  <description>Versions of the Microblink Platform SDK, its engine and the scanner SDKs the engine is built against.</description>
+  <url>https://microblink.com/</url>
+  <licenses>
+    <license>
+      <name>MicroBlink Terms of Use</name>
+      <url>https://microblink.com/terms-of-use/</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>Microblink</id>
+      <name>Microblink Ltd.</name>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:https://github.com/MicroblinkPlatform/microblink-platform-android.git</connection>
+    <developerConnection>scm:git:https://github.com/MicroblinkPlatform/microblink-platform-android.git</developerConnection>
+    <url>https://github.com/MicroblinkPlatform/microblink-platform-android</url>
+  </scm>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.microblink</groupId>
+        <artifactId>microblink-platform-engine</artifactId>
+        <version>2.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.microblink</groupId>
+        <artifactId>microblink-platform</artifactId>
+        <version>2.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.microblink</groupId>
+        <artifactId>blinkid-verify-ux</artifactId>
+        <version>4000.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.microblink</groupId>
+        <artifactId>blinkcard-ux</artifactId>
+        <version>3001.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.microblink</groupId>
+        <artifactId>biometrics-ux</artifactId>
+        <version>1000.2.1</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>

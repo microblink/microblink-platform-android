@@ -3,4 +3,5 @@ $dokka.linkExtension:html
 
 module:microblink-platform
 com.microblink.platform
-com.microblink.platform.ui.theme
+module:microblink-platform-engine
+com.microblink.platform.engine
