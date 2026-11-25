@@ -1,10 +1,10 @@
 [versions]
 agp = "9.1.1"
-kotlin = "2.3.21"
+kotlin = "2.4.21"
 microblinkPlatform = "2.0.0"
-composeBom = "2025.12.00"
-coroutines = "1.10.2"
-activityCompose = "1.10.1"
+composeBom = "2026.11.01"
+coroutines = "1.11.0"
+activityCompose = "1.13.0"
 junit = "4.13.2"
 
 [libraries]
