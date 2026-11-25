@@ -53,6 +53,9 @@ class VerificationViewModel : ViewModel() {
     /** The input screen to return to when Engine asks for the input again. */
     private var lastInput: Screen? = null
 
+    /** The step that asked for [lastInput]. */
+    private var lastAction: StepAction? = null
+
     /** The card a card scan step read, for the result screen. */
     private var card: CardScanResult? = null
 
@@ -111,6 +114,7 @@ class VerificationViewModel : ViewModel() {
     fun startOver() {
         session = null
         lastInput = null
+        lastAction = null
         card = null
         clearDrafts()
         screen = Screen.Start
@@ -122,13 +126,14 @@ class VerificationViewModel : ViewModel() {
             is StepResult.Ready -> when (val action = result.action) {
                 // Engine shows the scanner and face screens itself.
                 is StepAction.EngineStep -> return next()
-                is StepAction.Start -> input(Screen.Form(action.form))
+                is StepAction.Start -> input(Screen.Form(action.form), action)
                 is StepAction.InputStep -> input(
                     when (val request = action.request) {
                         is InputRequest.Form -> Screen.Form(request)
                         is InputRequest.UploadIdDocument -> Screen.UploadId(request)
                         is InputRequest.UploadNonIdDocument -> Screen.UploadNonId(request)
                     },
+                    action,
                 )
             }
             is StepResult.Blocked -> when (result.blocker) {
@@ -139,11 +144,17 @@ class VerificationViewModel : ViewModel() {
         }
     }
 
-    /** A new input step: starts its drafts from the form's default values. */
-    private fun input(screen: Screen): Screen {
-        clearDrafts()
-        (screen as? Screen.Form)?.form?.fields?.forEach { field -> field.defaultValue?.let { formText[field.name] = it } }
+    /**
+     * Shows an input screen. A new step starts from the form's default values; the same step asked
+     * again, as after a submit whose answer Engine lost, keeps what the user entered.
+     */
+    private fun input(screen: Screen, action: StepAction): Screen {
+        if (!action.isSameInputAs(lastAction)) {
+            clearDrafts()
+            (screen as? Screen.Form)?.form?.fields?.forEach { field -> field.defaultValue?.let { formText[field.name] = it } }
+        }
         lastInput = screen
+        lastAction = action
         return screen
     }
 
@@ -174,4 +185,14 @@ class VerificationViewModel : ViewModel() {
         document = null
         documentFile = null
     }
+}
+
+/**
+ * Whether this asks for the same input as [previous], as when Engine asks again after losing a
+ * submit's answer. Two steps can have the same fields, so the step has to match too.
+ */
+internal fun StepAction.isSameInputAs(previous: StepAction?): Boolean = when (this) {
+    is StepAction.InputStep -> previous is StepAction.InputStep && previous.step.id == step.id && previous.request == request
+    is StepAction.Start -> previous == this
+    is StepAction.EngineStep -> false
 }
