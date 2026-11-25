@@ -10,16 +10,20 @@ for i in "${!LIB_NAMES[@]}"; do
     tmpDest=$tmpDir/com/microblink/$libName/$libVersion
 
     mkdir -p $tmpDest
-    cp $libName-$libVersion.aar $tmpDest/$libName-$libVersion.aar
     cp pom-$libName.xml $tmpDest/$libName-$libVersion.pom
+    files=($libName-$libVersion.pom)
+    # A BOM is a POM with no AAR
+    if [ -f $libName-$libVersion.aar ]; then
+        cp $libName-$libVersion.aar $tmpDest/$libName-$libVersion.aar
+        files+=($libName-$libVersion.aar)
+    fi
 
     pushd $tmpDest > /dev/null
-    md5 -q $libName-$libVersion.pom > $libName-$libVersion.pom.md5
-    md5 -q $libName-$libVersion.aar > $libName-$libVersion.aar.md5
-    shasum $libName-$libVersion.pom | cut -d ' ' -f 1 > $libName-$libVersion.pom.sha1
-    shasum $libName-$libVersion.aar | cut -d ' ' -f 1 > $libName-$libVersion.aar.sha1
-    gpg -ab $libName-$libVersion.pom
-    gpg -ab $libName-$libVersion.aar
+    for file in "${files[@]}"; do
+        md5 -q $file > $file.md5
+        shasum $file | cut -d ' ' -f 1 > $file.sha1
+        gpg -ab $file
+    done
     popd > /dev/null
 
     (cd $tmpDir && zip -r ../$libName-$libVersion-maven-bundle.zip .)

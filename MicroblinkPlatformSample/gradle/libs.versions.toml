@@ -1,15 +1,27 @@
 [versions]
-agp = "8.11.2"
-kotlin = "2.2.21"
-microblinkPlatform = "1.10.1"
-composeBom = "2025.12.00"
+agp = "9.1.1"
+kotlin = "2.4.21"
+microblinkPlatform = "2.0.0"
+composeBom = "2026.11.01"
+coroutines = "1.11.0"
+activityCompose = "1.13.0"
+junit = "4.13.2"
 
 [libraries]
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-microblink-platform = { group = "com.microblink", name = "microblink-platform", version.ref = "microblinkPlatform" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+microblink-platform-bom = { group = "com.microblink", name = "microblink-platform-bom", version.ref = "microblinkPlatform" }
+microblink-platform = { group = "com.microblink", name = "microblink-platform" }
+microblink-platform-engine = { group = "com.microblink", name = "microblink-platform-engine" }
+blinkid-verify-ux = { group = "com.microblink", name = "blinkid-verify-ux" }
+blinkcard-ux = { group = "com.microblink", name = "blinkcard-ux" }
+biometrics-ux = { group = "com.microblink", name = "biometrics-ux" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 

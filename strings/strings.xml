@@ -5,6 +5,7 @@
     <string name="mbp_home_title">Let’s verify your identity</string>
     <string name="mbp_home_subtitle">This will only take a couple of minutes.</string>
     <string name="mbp_loading_text">Processing…</string>
+    <string name="mbp_uploading_text">Uploading… %1$d%%</string>
     <string name="mbp_error_verification_not_available">Verification not available</string>
     <string name="mbp_error_no_internet_connection">No internet connection</string>
     <string name="mbp_error_retake_selfie">Retake selfie</string>
@@ -31,24 +32,9 @@
     <string name="mbp_result_reject_subtitle">We couldn’t verify your identity this time. Please double-check your information and try again, or contact support for assistance.</string>
     <string name="mbp_result_done">Done</string>
     <string name="mbp_camera_permission_required">Camera permission required</string>
-    <string name="mbp_enable_camera">Enable camera</string>
-    <string name="mbp_warning_title">Warning</string>
-    <string name="mbp_enable_permission_help">Enable permission</string>
     <string name="mbp_camera_permission_required_subtitle">We don’t have your permission to use the camera. To continue, please make sure that camera is enabled.</string>
     <string name="mbp_camera_permission_action">Go to Settings</string>
     <string name="mbp_error_retake_selfie_description">Try again, making sure your eyes are open, your face is fully visible, and there’s good lighting.</string>
-    <string name="mbp_face_capture_error_too_many_faces">Only one face should be visible</string>
-    <string name="mbp_face_capture_error_face_not_found">Ensure your face is in the frame</string>
-    <string name="mbp_face_capture_error_face_too_small">Move closer</string>
-    <string name="mbp_face_capture_error_face_cropped">Center your face</string>
-    <string name="mbp_face_capture_error_face_angled">Look directly into the camera</string>
-    <string name="mbp_face_capture_error_face_occluded">Keep your face fully visible</string>
-    <string name="mbp_face_capture_error_face_too_close">Move farther</string>
-    <string name="mbp_face_capture_error_face_close_to_border">Center your face</string>
-    <string name="mbp_face_capture_error_face_moving">Keep still</string>
-    <string name="mbp_face_capture_error_undefined">Place your face in the frame</string>
-    <string name="mbp_face_capture_error_face_not_centered">Center your face</string>
-    <string name="mbp_face_capture_default_message">Place your face into the frame</string>
     <string name="mbp_error_doc_ver_invalid_input">Scan again</string>
     <string name="mbp_error_doc_ver_unsupported_input">Document not accepted</string>
     <string name="mbp_error_doc_ver_invalid_input_description">Try again, ensuring your document is fully visible and well-lit. Keep the document steady to prevent any blurriness.</string>
@@ -71,7 +57,6 @@
     <string name="mbp_form_remove_image_dialog_title">Remove uploaded file?</string>
     <string name="mbp_form_remove_image_dialog_positive_action">Remove</string>
     <string name="mbp_form_remove_image_dialog_negative_action">Cancel</string>
-    <string name="mbp_form_date_picker_positive_action">OK</string>
     <string name="mbp_form_error_required_field">This is a required field</string>
     <string name="mbp_form_error_date_of_birth_invalid">Date must be in the past</string>
     <string name="mbp_form_error_email_invalid">Enter a valid email format (e.g., name@company.com)</string>
@@ -113,23 +98,18 @@
     <string name="mbp_upload_id_document_front">Front</string>
     <string name="mbp_upload_id_document_back">Back</string>
     <string name="mbp_upload_id_document_file_types">Image</string>
-    <string name="mbp_face_capture_error_eyes_closed">Keep your eyes open</string>
-    <string name="mbp_face_capture_error_dark_image">Move to a brighter spot</string>
-    <string name="mbp_face_capture_error_face_blurry">Keep still</string>
-    <string name="mbp_face_capture_error_mouth_open">Close your mouth</string>
-    <string name="mbp_face_capture_error_sunglasses_detected">Remove your sunglasses</string>
-    <string name="mbp_form_error_file_size_exceeded">The file is too large. Please upload a PDF smaller than 20 MB.</string>
-    <string name="mbp_consent_dialog_title">We need your consent to:</string>
-    <string name="mbp_consent_dialog_subtitle">Store and/or access personal information which may include biometric data, for the purpose of verifying your identity.</string>
-    <string name="mbp_consent_dialog_data_privacy_info">Your choices help us protect your personal information and improve our technology while maintaining the highest standards of data privacy as described in the Privacy Notice.</string>
-    <string name="mbp_consent_dialog_data_privacy_info_privacy_notice">Privacy Notice.</string>
-    <string name="mbp_consent_dialog_data_privacy_info_privacy_notice_link">https://microblink.com/privacy-notice-for-microblink-platform-users/</string>
-    <string name="mbp_consent_dialog_switch_label">I consent to the use of my personal data, including biometric data, by the provider for the purpose of optimizing its technology.</string>
-    <string name="mbp_consent_dialog_switch_label_optional">(Optional)</string>
-    <string name="mbp_consent_dialog_consent_button">Consent</string>
-    <string name="mbp_consent_dialog_do_not_consent_button">Do not consent</string>
+    <string name="mbp_upload_document_file_type_unsupported">This file type isn\'t supported. Choose another file.</string>
     <string name="mbp_error_verification_not_available_description">Please try again later or contact support.</string>
     <string name="mbp_error_upload_id_unsupported_document">Unsupported document</string>
     <string name="mbp_error_upload_id_unsupported_document_description">Please try again and upload a supported document.</string>
-    <string name="empty" />
+    <!-- What TalkBack says the ✕ does: "Double-tap to close". -->
+    <string name="mbp_close_action">close</string>
+    <!-- What TalkBack says the input screens' buttons do; %1$s is the field's or document's name. -->
+    <string name="mbp_enlarge_image_action">enlarge image</string>
+    <string name="mbp_delete_image_action">delete image</string>
+    <string name="mbp_remove_file_action">remove %1$s</string>
+    <string name="mbp_upload_file_action">upload %1$s</string>
+    <string name="mbp_select_document_action">Select a document</string>
+    <string name="mbp_upload_id_document_front_image">front document image</string>
+    <string name="mbp_upload_id_document_back_image">back document image</string>
 </resources>
