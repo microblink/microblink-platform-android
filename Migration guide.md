@@ -120,7 +120,7 @@ The SDK now checks which SDK version the transaction's workflow was built for, a
 | `typography` | `typography` (`MicroblinkPlatformTypography`, new styles, see below) |
 | `documentScanningTypography` (`ParcelableUiTypography`) | `scannerTypography` (`ScannerTypography`), for the document, card and face screens |
 
-`MicroblinkPlatformTypography` replaced its per-screen styles (`homeTitle`, …) with 12 styles, one per kind of text: `heading`, `description`, `subtitle`, `homeStepTitle`, `homeStepDescription`, `info`, `fieldTitle`, `fieldBody`, `fieldDescription`, `titleProgressAndErrors`, `dialogTitle` and `button`. `MicroblinkPlatformTypography.default(fontFamily)` still changes only the font. The [Kotlin documentation](https://microblinkplatform.github.io/microblink-platform-android/microblink-platform/com.microblink.platform/-microblink-platform-typography/index.html) says where each style is used.
+`MicroblinkPlatformTypography` replaced its per-screen styles (`homeTitle`, …) with 12 styles, one per kind of text: `heading`, `description`, `subtitle`, `homeStepTitle`, `homeStepDescription`, `info`, `fieldTitle`, `fieldBody`, `fieldDescription`, `titleProgressAndErrors`, `dialogTitle` and `button`. `MicroblinkPlatformTypography.default(fontFamily)` still changes only the font. The [Kotlin documentation](https://microblink.github.io/microblink-platform-android/microblink-platform/com.microblink.platform/-microblink-platform-typography/index.html) says where each style is used.
 
 The SDK uses a light theme in 2.0.0, as 1.x did.
 

@@ -325,8 +325,8 @@ val outcome = (step as StepResult.Finished).outcome
 * The engine follows which of your Activities is in front through `androidx.startup` (`EngineInitializer`), so you never hand it one. If your app turns off automatic initialization, initialize `EngineInitializer` in `Application.onCreate`.
 * The look of the scanner and face screens comes from `EngineConfiguration.appearance` (`ScannerAppearance`: colors and `ScannerTypography`).
 
-See the [engine's Kotlin documentation](https://microblinkplatform.github.io/microblink-platform-android/microblink-platform-engine/com.microblink.platform.engine/index.html) for every step, input and error.
+See the [engine's Kotlin documentation](https://microblink.github.io/microblink-platform-android/microblink-platform-engine/com.microblink.platform.engine/index.html) for every step, input and error.
 
 ## <a name="kotlin-documentation"></a> Kotlin documentation
-* [Drop-in UI (`microblink-platform`)](https://microblinkplatform.github.io/microblink-platform-android/microblink-platform/com.microblink.platform/index.html)
-* [Engine (`microblink-platform-engine`)](https://microblinkplatform.github.io/microblink-platform-android/microblink-platform-engine/com.microblink.platform.engine/index.html)
+* [Drop-in UI (`microblink-platform`)](https://microblink.github.io/microblink-platform-android/microblink-platform/com.microblink.platform/index.html)
+* [Engine (`microblink-platform-engine`)](https://microblink.github.io/microblink-platform-android/microblink-platform-engine/com.microblink.platform.engine/index.html)
